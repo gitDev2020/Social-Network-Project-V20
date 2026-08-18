@@ -1,0 +1,15 @@
+
+.nav{
+  grid-area: na;
+  background-color: chartreuse;
+  padding: 5px;
+}
+
+.item a{
+  color: maroon;
+  text-decoration: none;
+}
+
+a:global(.active){
+  color: blue;
+}

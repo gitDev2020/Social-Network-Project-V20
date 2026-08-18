@@ -10,22 +10,8 @@
   grid-gap: 5px;
 }
 
-.header img {
-  height: auto;
-  width: 100px;
-}
-
-.header{
-  grid-area: he;
-  background-color: bisque;
-}
-
-.nav{
-  grid-area: na;
-  background-color: chartreuse;
-}
-
-.content{
+.app-content{
   grid-area: co;
   background-color: darkgray;
+  padding: 5px;
 }

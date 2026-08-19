@@ -6,7 +6,7 @@ const Profile = (props) => {
   return (
     <div className={smod.content}>
       <ProfileInfo />
-      <MyPosts posts={props.posts} />
+      <MyPosts profileData={props.profileData} dispatch={props.dispatch} />
     </div>
   )
 }

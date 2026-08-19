@@ -1,4 +1,4 @@
-import clas from './Music.module.css';
+import smod from './Music.module.css';
 
 
 const Music = (props) => {

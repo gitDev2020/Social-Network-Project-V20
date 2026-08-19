@@ -1,24 +1,26 @@
 import { NavLink } from "react-router-dom"
-import cmod from "./Navbar.module.css"
+import smod from "./Navbar.module.css"
+import Sitebar from "../Sitebar/Sitebar"
 
-const Navbar = () => {
+const Navbar = (props) => {
   return (
-    <nsv className={cmod.nav}>
-      <div className={cmod.item}>
+    <nsv className={smod.nav}>
+      <div className={smod.item}>
         <NavLink to="/profile">Profile</NavLink>
       </div>
-      <div className={cmod.item}>
+      <div className={smod.item}>
         <NavLink to="/dialogs">Messages</NavLink>
       </div>
-      <div className={cmod.item}>
+      <div className={smod.item}>
         <NavLink to="/news">News</NavLink>
       </div>
-      <div className={cmod.item}>
+      <div className={smod.item}>
         <NavLink to="/music">Music</NavLink>
       </div>
-      <div className={cmod.item}>
+      <div className={smod.item}>
         <NavLink to="/settings">Settings</NavLink>
       </div>
+      <Sitebar sitebar={props.sitebar} />
     </nsv>
   )
 }

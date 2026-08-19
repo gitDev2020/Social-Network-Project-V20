@@ -1,4 +1,4 @@
-import clas from './News.module.css';
+import smod from './News.module.css';
 
 
 const News = (props) => {

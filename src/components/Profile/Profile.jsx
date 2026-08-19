@@ -1,13 +1,12 @@
 import MyPosts from "./MyPosts/MyPosts";
-import cmod from "./Profile.module.css"
+import smod from "./Profile.module.css"
+import ProfileInfo from "./ProfileInfo/ProfileInfo";
 
-const Profile = () => {
+const Profile = (props) => {
   return (
-    <div className={cmod.content}>
-      <div>
-        Ava + Description
-      </div>
-        <MyPosts />
+    <div className={smod.content}>
+      <ProfileInfo />
+      <MyPosts posts={props.posts} />
     </div>
   )
 }

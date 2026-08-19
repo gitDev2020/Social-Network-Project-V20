@@ -1,18 +1,21 @@
-import cmod from "./MyPosts.module.css"
+import smod from "./MyPosts.module.css"
 import Post from "./Post/Post"
 
-const MyPosts = () => {
+const MyPosts = (props) => {
+  let posts = props.posts.map(p =>  <Post text={p.post} like={p.like} id={p.id} />)
   return (
-    <div>
-      My posts
+    <div className={smod.postsBlock}>
+      <h3>My posts</h3>
       <div>
+        <div>
           <textarea></textarea>
+        </div>
+        <div>
           <button>Add post</button>
         </div>
-      <div className={cmod.posts}>
-        <Post text = "it's my first post" like = "1" />
-        <Post text = "Hello!" like = "3" />
-        <Post text = "Hi how are you?" like = "0" />
+      </div>
+      <div className={smod.posts}>
+        {posts}
       </div>
     </div>
   )

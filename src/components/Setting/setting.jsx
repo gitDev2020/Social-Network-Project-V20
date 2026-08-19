@@ -1,4 +1,4 @@
-import clas from './Setting.module.css';
+import smod from './Setting.module.css';
 
 
 const Setting = (props) => {

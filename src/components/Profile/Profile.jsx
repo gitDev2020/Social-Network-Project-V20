@@ -1,4 +1,4 @@
-import MyPosts from "./MyPosts/MyPosts";
+import MyPostsContainer from "./MyPosts/myPostsContainer";
 import smod from "./Profile.module.css"
 import ProfileInfo from "./ProfileInfo/ProfileInfo";
 
@@ -6,7 +6,7 @@ const Profile = (props) => {
   return (
     <div className={smod.content}>
       <ProfileInfo />
-      <MyPosts profileData={props.profileData} dispatch={props.dispatch} />
+      <MyPostsContainer />
     </div>
   )
 }

@@ -1,21 +1,19 @@
-import { NavLink } from "react-router-dom"
 import smod from "./Dialogs.module.css"
 import DialogItem from "./DialogItem/DialogItem"
 import Message from "./Message/Message"
-import { sendMessageCreator, updateNewMessageTextCreator } from "../../Redux/State"
+import { sendMessageCreator, updateNewMessageTextCreator } from "../../Redux/dialogsReducer"
 
 const Dialogs = (props) => {
-  let dialog = props.dialogData.dialogs.map( u => <DialogItem name={u.name} id={u.id} />)
+  let dialog = props.dialogsPage.dialogs.map( u => <DialogItem name={u.name} id={u.id} key={u.id} />)
+  let message = props.dialogsPage.messages.map(m => <Message massege={m.message} id={m.id} key={m.id} />)
+  let newMessageBody = props.newMessageText
 
-  let message = props.dialogData.messages.map(m => <Message massege={m.message} id={m.id} />)
-
-  let newMessageBody = props.dialogData.newMessageText
   let onMessageClick = () =>{
-    props.dispatch(sendMessageCreator())
+    props.sendMessage()
   }
   let onMessageChange = (e) =>{
     let text = e.target.value
-    props.dispatch(updateNewMessageTextCreator(text))
+    props.updateNewMessageText(text)
   }
 
   return (

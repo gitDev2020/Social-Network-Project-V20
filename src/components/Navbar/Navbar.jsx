@@ -1,6 +1,7 @@
 import { NavLink } from "react-router-dom"
 import smod from "./Navbar.module.css"
 import Sitebar from "../Sitebar/Sitebar"
+import SitebarConteiner from "../Sitebar/SitebarContainer"
 
 const Navbar = (props) => {
   return (
@@ -12,6 +13,9 @@ const Navbar = (props) => {
         <NavLink to="/dialogs">Messages</NavLink>
       </div>
       <div className={smod.item}>
+        <NavLink to="/users">Users</NavLink>
+      </div>
+      <div className={smod.item}>
         <NavLink to="/news">News</NavLink>
       </div>
       <div className={smod.item}>
@@ -20,7 +24,7 @@ const Navbar = (props) => {
       <div className={smod.item}>
         <NavLink to="/settings">Settings</NavLink>
       </div>
-      <Sitebar sitebar={props.sitebar} />
+      <SitebarConteiner sitebar={props.sitebar} />
     </nsv>
   )
 }

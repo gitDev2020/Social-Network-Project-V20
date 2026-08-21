@@ -1,0 +1,27 @@
+.usersBlock img{
+    padding: 4px;
+    width: 65px;
+    border-radius: 35px;
+}
+
+.usersBlock{
+    padding: 8px;
+}
+
+.select{
+    font-weight: bold;
+}
+
+.preloader{
+    margin-left: 20vw;
+    margin-top: 5vh;
+    width: 100px;
+    border-radius: 50px;
+}
+
+.item{
+    display: grid;
+    grid-template-columns: 3%3%3%3%3%3%3%3%3%3%3%3%3%3%3%3%3%3%3%3%3%3%3%3%3%3%3%3%3%3%3%3%3% ;
+    grid-template-rows: 9%;
+}
+

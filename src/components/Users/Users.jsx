@@ -1,36 +1,44 @@
+import axios from "axios";
 import smod from "./Users.module.css"
+import imgfiller from "../../img/users.jpg"
+import { NavLink } from "react-router-dom";
 
-const Users = (props) => { //{users, setUsers}
-    if(props.users.length === 0){
-    props.setUsers([
-        {id: 1, fullName: "User 01", followed: false, status: "I am a lid", location: {city: "Minsk", country: "Belarus"}, avatar: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQQsQrF0cK_OwBax9m2uIis05ZnSQ3xIV5XwmXgamxF50RcJZaiGA"},
-        {id: 2, fullName: "User 02", followed: false, status: "not status", location: {city: "New york", country: "USA"}, avatar: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQQsQrF0cK_OwBax9m2uIis05ZnSQ3xIV5XwmXgamxF50RcJZaiGA"},
-        {id: 3, fullName: "User 03", followed: true, status: "just Junior", location: {city: "Moscow", country: "Russia"}, avatar: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQQsQrF0cK_OwBax9m2uIis05ZnSQ3xIV5XwmXgamxF50RcJZaiGA"},
-        {id: 4, fullName: "User 04", followed: true, status: "I am a boss", location: {city: "Washington", country: "USA"}, avatar: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQQsQrF0cK_OwBax9m2uIis05ZnSQ3xIV5XwmXgamxF50RcJZaiGA"}
-    ])
-}
+const status = "статус не присвоен";
 
+const Users = (props) => {
+  let countPages = Math.min(Math.ceil(props.totalUsersCount / props.pageSize), 100)
+  let pages = []
+  for (let i = 1; i <= countPages; i++)(
+    pages.push(i)
+  )
     return (
-        <div className={smod.usersBlock}>
-            {props.users.map(user =>
-                <div key={user.id}>
-                    <span>
-                        <div><img src={user.avatar} alt='' /></div>
-                        {user.followed ? <div><button onClick={() => props.follow(user.id)}>follow</button></div> 
-                        : <div><button onClick={() => props.unFollow(user.id)}>unfollow</button></div>}
-                    </span>
-                    <span>
-                        <div>{user.fullName}</div>
-                        <div>{user.status}</div>
-                    </span>
-                    <span>
+      <div className={smod.usersBlock}>
+        <div>
+          {pages.map(p => {
+            return <span className={props.currentPage === p && smod.selected} onClick={() => {props.onPageChanged(p)}}>{p}</span>
+          })}
+        </div>
+        {props.users.map(user =>
+          <div key={user.id}>
+            <span>
+              <div>
+                <NavLink to = {'/profile/' + user.id}><img src={user.photos.small || imgfiller} alt='' /></NavLink>
+              </div>
+              {user.followed ? <div><button onClick={() => props.follow(user.id)}>follow</button></div>
+                : <div><button onClick={() => props.unFollow(user.id)}>unfollow</button></div>}
+            </span>
+            <span>
+              <div>{user.name}</div>
+              <div>{user.status || status}</div>
+            </span>
+            {/* <span>
                         <div>{user.location.country}</div>
                         <div>{user.location.city}</div>
-                    </span>
-                </div>
-            )}
-        </div>
+                    </span> */}
+          </div>
+        )}
+      </div>
     )
-};
+  }
 
 export default Users

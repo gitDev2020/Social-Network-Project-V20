@@ -1,3 +1,4 @@
+import { Navigate } from "react-router-dom";
 import Preloader from "../../common/preloader";
 import MyPostsContainer from "./MyPosts/myPostsContainer";
 import smod from "./Profile.module.css"
@@ -7,6 +8,7 @@ const Profile = (props) => {
   if(!props.profile){
     return <Preloader />
   }
+  
   return (
     <div className={smod.content}>
       <ProfileInfo profile={props.profile} />

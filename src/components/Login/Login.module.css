@@ -1,0 +1,9 @@
+.loginStyle{
+  padding: 8px;
+}
+
+.formSummaryError{
+  border: solid 2px red;
+  padding: 4px;
+  color: orangered
+}

@@ -7,3 +7,21 @@ header img {
   grid-area: he;
   background-color: bisque;
 }
+
+.login{
+  padding: 10px;
+  float: right;
+}
+
+ a{
+  text-decoration: none;
+}
+
+a.active{
+  color: black;
+  text-decoration: underline;
+}
+
+.item img{
+  padding: 50px;
+}

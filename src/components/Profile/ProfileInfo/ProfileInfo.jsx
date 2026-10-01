@@ -1,11 +1,13 @@
 import smod from "./ProfileInfo.module.css"
 import usersNoPhoto from '../../../img/users.jpg'
+import ProfileStatus from "./ProfileStatus";
 
 const ProfileInfo = (props) => {
   return (
     <div className={smod.discriptionBlock}>
       <div><b>Name:</b> {props.profile.fullName}</div>
       <div className = {smod.avatar}><img src = {props.profile.photos.large != null ? props.profile.photos.large : usersNoPhoto}/></div>
+      <ProfileStatus status={props.status} updateStatus={props.updateStatus} />
       <div><b>looking For A Job:</b> {props.profile.lookingForAJob ? 'Ищу' : 'Не ищу'} </div>
       <div><b>Job Description:</b> {props.profile.lookingForAJobDescription}</div>
       <div><h3>My contacts</h3>
